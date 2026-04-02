@@ -3,9 +3,9 @@ import requests
 import base64
 from flask import Flask, request, render_template
 
-TOKEN = 'ضع_توكن_بوتك_هنا'
-CHANNEL_ID = '@يوزر_قناتك' 
-BASE_URL = 'https://your-project.vercel.app' # رابط فيرسيل الذي ستحصل عليه لاحقاً
+TOKEN = '8569672811:AAEqIzOyjxEpsh331Z9tYmZl1zhmjoJprjY'
+CHANNEL_ID = '@DroidOnline2' 
+BASE_URL = 'https://droidlink.vercel.app' # رابط فيرسيل الذي ستحصل عليه لاحقاً
 
 bot = telebot.TeleBot(TOKEN, threaded=False)
 app = Flask(__name__)
