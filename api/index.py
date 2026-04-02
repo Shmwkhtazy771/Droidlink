@@ -4,7 +4,7 @@ import base64
 from flask import Flask, request, render_template
 
 TOKEN = '8313488232:AAFSCmIgCV-ped9mxJFGs3RyRn-A0vw8_Tg'
-CHANNEL_ID = '@DroidOnline2' 
+CHANNEL_ID = '' 
 BASE_URL = 'https://droidlink.vercel.app' # رابط فيرسيل الذي ستحصل عليه لاحقاً
 
 bot = telebot.TeleBot(TOKEN, threaded=False)
