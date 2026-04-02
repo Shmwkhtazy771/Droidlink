@@ -3,7 +3,7 @@ import requests
 import base64
 from flask import Flask, request, render_template
 
-TOKEN = '8569672811:AAEqIzOyjxEpsh331Z9tYmZl1zhmjoJprjY'
+TOKEN = '8313488232:AAFSCmIgCV-ped9mxJFGs3RyRn-A0vw8_Tg'
 CHANNEL_ID = '@DroidOnline2' 
 BASE_URL = 'https://droidlink.vercel.app' # رابط فيرسيل الذي ستحصل عليه لاحقاً
 
